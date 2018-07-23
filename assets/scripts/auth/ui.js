@@ -6,6 +6,7 @@ const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
   $('#signUp').modal('hide')
+  console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
@@ -17,9 +18,10 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  $('#sign-out, #changePassButton').show()
+  $('#options').show()
   $('#signUpButton, #signInButton').hide()
   $('#signIn').modal('hide')
+  console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
 
