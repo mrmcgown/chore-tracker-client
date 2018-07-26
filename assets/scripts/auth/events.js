@@ -55,6 +55,7 @@ const addHandlers = () => {
   $('#sign-in').on('submit', onSignIn)
   $('#change-password').on('submit', onChangePassword)
   $('#sign-out').on('click', onSignOut)
+  $('.chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').hide()
 }
 
 module.exports = {

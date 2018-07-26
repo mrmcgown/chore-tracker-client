@@ -11,9 +11,9 @@ const showChoresSuccess = function (data) {
     const choreHTML = (`
     <h4>Name: ${chore.name}</h4>
     <p>ID: ${chore.id}</p>
-    <p>Estimated Time ${chore.estimated_time} minutes</p>
+    <p>Estimated Time: ${chore.estimated_time} minutes</p>
     <p>Is finished? ${chore.is_finished}</p>
-    <p>Frequency ${chore.frequency} days</p>
+    <p>Frequency: ${chore.frequency} days</p>
     <br>
   `)
     $('#content').append(choreHTML)
@@ -31,7 +31,7 @@ const addChoreSuccess = function (data) {
   store.game = data.game
   $('#message').text('Added chore successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  $('#signUp').modal('hide')
+  $('#add-chore')[0].reset()
   console.log('addChoreSuccess ran. Data is :', data)
 }
 

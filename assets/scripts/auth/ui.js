@@ -5,6 +5,7 @@ const store = require('../store')
 const signUpSuccess = function (data) {
   $('#message').text('Signed up successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
+  $('#sign-up')[0].reset()
   $('#signUp').modal('hide')
   console.log('signUpSuccess ran. Data is :', data)
 }
@@ -18,7 +19,8 @@ const signUpFailure = function (error) {
 const signInSuccess = function (data) {
   $('#message').text('Signed in successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  $('#options').show()
+  $('#sign-in')[0].reset()
+  $('.chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').show()
   $('#signUpButton, #signInButton').hide()
   $('#signIn').modal('hide')
   console.log('signInSuccess ran. Data is :', data)
@@ -34,6 +36,7 @@ const signInFailure = function (error) {
 const changePasswordSuccess = function (data) {
   $('#message').text('Changed password successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
+  $('#change-password')[0].reset()
   $('#changePassword').modal('hide')
 }
 
@@ -46,8 +49,9 @@ const changePasswordFailure = function (error) {
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  $('#sign-out, #changePassButton, #options').hide()
+  $('.chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').hide()
   $('#signUpButton, #signInButton').show()
+  $('#content').html('')
   store.user = null
 }
 
