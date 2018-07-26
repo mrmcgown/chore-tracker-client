@@ -2,7 +2,33 @@
 
 const store = require('../store')
 
+const showChoresSuccess = function (data) {
+  $('#message').text('Showed chores successfully').show().delay(1500).fadeOut()
+  $('#message').css('background-color', 'green')
+  console.table(data.chores)
+
+  data.chores.forEach(chore => {
+    const choreHTML = (`
+    <h4>Name: ${chore.name}</h4>
+    <p>ID: ${chore.id}</p>
+    <p>Estimated Time ${chore.estimated_time} minutes</p>
+    <p>Is finished? ${chore.is_finished}</p>
+    <p>Frequency ${chore.frequency} days</p>
+    <br>
+  `)
+    $('#content').append(choreHTML)
+  })
+  console.log('showChoresSuccess ran. Data is :', data)
+}
+
+const showChoresFailure = function (error) {
+  $('#message').text('Error on show chores').show().delay(1500).fadeOut()
+  $('#message').css('background-color', 'red')
+  console.log('showChoresFailure ran. Error is :', error)
+}
+
 const addChoreSuccess = function (data) {
+  store.game = data.game
   $('#message').text('Added chore successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
   $('#signUp').modal('hide')
@@ -43,6 +69,8 @@ const updateChoreFailure = function (error) {
 }
 
 module.exports = {
+  showChoresSuccess,
+  showChoresFailure,
   addChoreSuccess,
   addChoreFailure,
   deleteChoreSuccess,

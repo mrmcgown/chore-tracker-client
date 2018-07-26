@@ -3,6 +3,17 @@
 const config = require('../config')
 const store = require('../store')
 
+const showChores = function (data) {
+  return $.ajax({
+    url: config.apiUrl + '/chores',
+    method: 'GET',
+    headers: {
+      Authorization: 'Token token=' + store.user.token
+    },
+    data
+  })
+}
+
 const addChore = function (data) {
   return $.ajax({
     url: config.apiUrl + '/chores',
@@ -38,6 +49,7 @@ const updateChore = function (data) {
 }
 
 module.exports = {
+  showChores,
   addChore,
   deleteChore,
   updateChore

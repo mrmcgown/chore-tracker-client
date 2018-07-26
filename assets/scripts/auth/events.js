@@ -2,6 +2,7 @@
 
 const getFormFields = require('../../../lib/get-form-fields')
 
+// const choreEvents = require('../chores/events')
 const api = require('./api')
 const ui = require('./ui')
 
@@ -24,6 +25,7 @@ const onSignIn = function (event) {
   const data = getFormFields(this)
   console.log(this)
   console.log(data)
+  // choreEvents.onShowChores()
   api.signIn(data)
     .then(ui.signInSuccess)
     .catch(ui.signInFailure)

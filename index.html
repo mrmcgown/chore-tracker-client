@@ -55,6 +55,71 @@
         </div><!-- /.container-fluid -->
       </nav>
       <p id="message"></p>
+
+      <h2>View All Chores</h2>
+      <form id="chores-search">
+        <button type="submit" class="btn btn-default">View All Chores</button>
+      </form>
+<!-- chore
+:
+estimated_time
+:
+"5"
+frequency
+:
+"10"
+is_finished
+:
+"f"
+last_completed
+:
+"2018-12-31"
+name
+:
+"Take out trash" -->
+<!--       <h2>Update One Book</h2>
+      <form class="books" id="book-update">
+        <div class="form-group">
+          <input type="text" name="book[id]" id="book-id-update" placeholder="Resource ID Here">
+          <input type="text" name="book[title]" placeholder="Resource Title Here">
+          <input type="text" name="book[author]" placeholder="Resource Author Here">
+        </div>
+        <button type="submit" class="btn btn-default">Update Book</button>
+      </form> -->
+      <h2>Add Chore</h2>
+      <form class="chores" id="add-chore">
+        <div class="form-group">
+          <input type="text" name="chore[name]" placeholder="Name of Chore">
+          <input type="integer" name="chore[estimated_time]" placeholder="Estimated Time to Complete Chore">
+          <input type="boolean" name="chore[is_finished]" placeholder="Status of Chore">
+          <input type="integer" name="chore[frequency]" placeholder="Frequency of Chore">
+          <input type="date" name="chore[last_completed]" placeholder="Date of Last Completion">
+        </div>
+        <button type="submit" class="btn btn-default">Add Chore</button>
+      </form>
+
+      <h2>Delete Chore</h2>
+      <form class="chores" id="delete-chore">
+        <div class="form-group">
+          <input type="text" name="chore[id]" placeholder="Resource ID Here">
+        </div>
+        <button type="submit" class="btn btn-default">Delete Chore</button>
+      </form>
+
+      <h2>Update Chore</h2>
+      <form class="chores" id="update-chore">
+        <div class="form-group">
+          <input type="text" name="chore[name]" placeholder="Name of Chore">
+          <input type="integer" name="chore[estimated_time]" placeholder="Estimated Time to Complete Chore">
+          <input type="boolean" name="chore[is_finished]" placeholder="Status of Chore">
+          <input type="integer" name="chore[frequency]" placeholder="Frequency of Chore">
+          <input type="date" name="chore[last_completed]" placeholder="Date of Last Completion">
+        </div>
+        <button type="submit" class="btn btn-default">Update Chore</button>
+      </form>
+
+      <p id="show-chores"></p>
+
       <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
           <div class="modal-content">
@@ -93,7 +158,7 @@
                   <input type="password" name="credentials[password]" placeholder="Password">
                   <input type="submit" value="submit">
                 </fieldset>
-            </form>
+              </form>
             </div>
             <div class="modal-footer">
               <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -124,5 +189,7 @@
           </div>
         </div>
       </div>
+
+      <div id="content"></div>
     </body>
 </html>

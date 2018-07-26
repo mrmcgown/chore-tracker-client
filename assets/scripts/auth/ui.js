@@ -46,7 +46,7 @@ const changePasswordFailure = function (error) {
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  $('#sign-out, #changePassButton').hide()
+  $('#sign-out, #changePassButton, #options').hide()
   $('#signUpButton, #signInButton').show()
   store.user = null
 }
