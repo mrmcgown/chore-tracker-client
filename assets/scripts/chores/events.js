@@ -7,6 +7,7 @@ const ui = require('./ui')
 const onShowChores = function (event) {
   event.preventDefault()
   console.log('show chores ran!')
+  $('#table').find('tr:gt(0)').remove()
 
   api.showChores()
     .then(ui.showChoresSuccess)
@@ -41,7 +42,7 @@ const onAddChore = function (event) {
     $('#message').css('background-color', 'red')
     return false
   }
-  // onShowChores()
+  $('#table').find('tr:gt(0)').remove()
   api.addChore(data)
     .then(ui.addChoreSuccess)
     .catch(ui.addChoreFailure)
@@ -77,7 +78,7 @@ const addHandlers = () => {
   $('#add-chore').on('submit', onAddChore)
   $('#delete-chore').on('submit', onDeleteChore)
   $('#udpate-chore').on('submit', onUpdateChore)
-  $('#options').hide()
+  $('#table, #options').hide()
 }
 
 module.exports = {

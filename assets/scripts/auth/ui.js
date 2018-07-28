@@ -20,7 +20,7 @@ const signInSuccess = function (data) {
   $('#message').text('Signed in successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
   $('#sign-in')[0].reset()
-  $('.chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').show()
+  $('#table, #table-headers, .chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').show()
   $('#signUpButton, #signInButton').hide()
   $('#signIn').modal('hide')
   console.log('signInSuccess ran. Data is :', data)
@@ -49,9 +49,10 @@ const changePasswordFailure = function (error) {
 const signOutSuccess = function () {
   $('#message').text('Signed out successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  $('.chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').hide()
+  $('#table').find('tr:gt(0)').remove()
+  $('#table, #table-headers, .chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').hide()
   $('#signUpButton, #signInButton').show()
-  $('#content').html('')
+  // $('#content').html('')
   store.user = null
 }
 

@@ -6,17 +6,17 @@ const showChoresSuccess = function (data) {
   $('#message').text('Showed chores successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
   console.table(data.chores)
-
   data.chores.forEach(chore => {
     const choreHTML = (`
-    <h4>Name: ${chore.name}</h4>
-    <p>ID: ${chore.id}</p>
-    <p>Estimated Time: ${chore.estimated_time} minutes</p>
-    <p>Is finished? ${chore.is_finished}</p>
-    <p>Frequency: ${chore.frequency} days</p>
-    <br>
-  `)
-    $('#content').append(choreHTML)
+      <tr>
+      <td>${chore.name}</td>
+      <td>${chore.id}</td>
+      <td>${chore.estimated_time}</td>
+      <td>${chore.is_finished}</td>
+      <td>${chore.frequency}</td>
+      </tr>
+    `)
+    $('#table').append(choreHTML)
   })
   console.log('showChoresSuccess ran. Data is :', data)
 }
