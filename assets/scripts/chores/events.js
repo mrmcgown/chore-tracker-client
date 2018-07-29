@@ -51,12 +51,11 @@ const onAddChore = function (event) {
 const onDeleteChore = function (event) {
   event.preventDefault()
   console.log('delete chore ran!')
+  const choreId = $(event.target).closest('tr').attr('data-id')
 
-  const data = getFormFields(this)
-  console.log(this)
-  console.log(data)
-  // onShowChores()
-  api.deleteChore(data)
+  console.log(choreId)
+  api.deleteChore(choreId)
+    .then(() => onShowChores(event))
     .then(ui.deleteChoreSuccess)
     .catch(ui.deleteChoreFailure)
 }
@@ -76,7 +75,7 @@ const onUpdateChore = function (event) {
 const addHandlers = () => {
   $('#chores-search').on('submit', onShowChores)
   $('#add-chore').on('submit', onAddChore)
-  $('#delete-chore').on('submit', onDeleteChore)
+  $('#table').on('click', 'button.delBut', onDeleteChore)
   $('#udpate-chore').on('submit', onUpdateChore)
   $('#table, #options').hide()
 }

@@ -2,22 +2,27 @@
 
 const store = require('../store')
 
+let table = document.getElementById("table")
+
 const showChoresSuccess = function (data) {
   $('#message').text('Showed chores successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
   console.table(data.chores)
   data.chores.forEach(chore => {
     const choreHTML = (`
-      <tr>
-      <td>${chore.name}</td>
-      <td>${chore.id}</td>
-      <td>${chore.estimated_time}</td>
-      <td>${chore.is_finished}</td>
-      <td>${chore.frequency}</td>
+      <tr data-id=${chore.id}>
+        <td>${chore.name}</td>
+        <td>${chore.id}</td>
+        <td>${chore.estimated_time}</td>
+        <td>${chore.is_finished}</td>
+        <td>${chore.frequency}</td>
+        <td><button type="button" class="updBut" class="btn btn-default">Update</button></td>
+        <td><button type="button" class="delBut" class="btn btn-default">Delete</button></td>
       </tr>
     `)
     $('#table').append(choreHTML)
   })
+
   console.log('showChoresSuccess ran. Data is :', data)
 }
 
@@ -44,9 +49,6 @@ const addChoreFailure = function (error) {
 const deleteChoreSuccess = function (data) {
   $('#message').text('Deleted chore successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  $('#sign-out, #changePassButton').show()
-  $('#signUpButton, #signInButton').hide()
-  $('#signIn').modal('hide')
 }
 
 const deleteChoreFailure = function (error) {

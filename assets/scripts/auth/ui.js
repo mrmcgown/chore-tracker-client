@@ -17,8 +17,9 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#message').text('Signed in successfully').show().delay(1500).fadeOut()
-  $('#message').css('background-color', 'green')
+  $('#message').html('<div class="alert alert-success"><strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>.</div>').show()
+  // $('#message').text('Signed in successfully').show().delay(1500).fadeOut()
+  // $('#message').css('background-color', 'green')
   $('#sign-in')[0].reset()
   $('#table, #table-headers, .chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').show()
   $('#signUpButton, #signInButton').hide()
