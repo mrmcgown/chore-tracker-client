@@ -42,11 +42,12 @@ const onAddChore = function (event) {
     $('#message').css('background-color', 'red')
     return false
   }
-  $('#table').find('tr:gt(0)').remove()
   api.addChore(data)
     .then(() => onShowChores(event))
     .then(ui.addChoreSuccess)
     .catch(ui.addChoreFailure)
+
+  $('.form-group').reset()
 }
 
 const onDeleteChore = function (event) {

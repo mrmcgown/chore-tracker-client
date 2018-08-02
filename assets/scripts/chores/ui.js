@@ -48,7 +48,6 @@ const showChoresFailure = function (error) {
 }
 
 const addChoreSuccess = function (data) {
-  store.game = data.game
   $('#message').text('Added chore successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
   $('#add-chore')[0].reset()
