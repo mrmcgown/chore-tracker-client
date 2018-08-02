@@ -35,10 +35,10 @@ const deleteChore = function (choreId) {
   })
 }
 
-const updateChore = function (data) {
+const updateChore = function (data, choreId) {
   console.log('data is ', data)
   return $.ajax({
-    url: config.apiUrl + '/chores/' + store.chore.id,
+    url: config.apiUrl + '/chores/' + choreId,
     method: 'PATCH',
     headers: {
       Authorization: 'Token token=' + store.user.token

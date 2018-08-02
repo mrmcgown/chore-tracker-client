@@ -7,18 +7,33 @@ let table = document.getElementById("table")
 const showChoresSuccess = function (data) {
   $('#message').text('Showed chores successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
+  $('#table').show()
   console.table(data.chores)
   data.chores.forEach(chore => {
     const choreHTML = (`
-      <tr data-id=${chore.id}>
-        <td>${chore.name}</td>
-        <td>${chore.id}</td>
-        <td>${chore.estimated_time}</td>
-        <td>${chore.is_finished}</td>
-        <td>${chore.frequency}</td>
-        <td><button type="button" class="updBut" class="btn btn-default">Update</button></td>
-        <td><button type="button" class="delBut" class="btn btn-default">Delete</button></td>
-      </tr>
+      <form class="tr" data-id=${chore.id}>
+        <span class="td">
+          <input type="text" value=${chore.name} />
+        </span>
+        <span class="td">
+          <input type="text" value=${chore.id} />
+        </span>
+        <span class="td">
+          <input type="text" value=${chore.estimated_time} />
+        </span>
+        <span class="td">
+          <input type="text" value=${chore.is_finished} />
+        </span>
+        <span class="td">
+          <input type="text" value=${chore.frequency} />
+        </span>
+        <span class="td">
+          <button type="submit" class="updBut" class="btn btn-default">Update</button>
+        </span>
+        <span class="td">
+          <button type="button" class="delBut" class="btn btn-default">Delete</button>
+        </span>
+      </form>
     `)
     $('#table').append(choreHTML)
   })

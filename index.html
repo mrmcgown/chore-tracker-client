@@ -12,48 +12,49 @@
       <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
     </head>
     <body>
-      <nav class="navbar navbar-default">
-        <div class="container-fluid">
-          <ul class="nav navbar-nav navbar-left">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <li>
-              <h2>ChoreTracker</h2>
-            </li>
-          </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="#" id="signUpButton" data-toggle="modal" data-target="#signUp">
-                  Sign Up
-              </a>
-            </li>
-            <li>
-              <a href="#" id='signInButton' data-toggle="modal" data-target="#signIn">
-                Sign In
-                </a>
-            </li>
-            <li class="dropdown" id="options">
-                <a href="#" id="optionsText" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                  Options
-                  <span class="caret">
-                  </span>
-                </a>
-            <ul class="dropdown-menu">
-              <li>
-                <a href="#" id="changePassButton" data-toggle="modal" data-target="#changePassword">
-                  Change Password
-                </a>
-              </li>
-              <li role="separator" class="divider">
-              </li>
-              <li>
-                <a href="#" id="sign-out">Sign out</button>
-                </a>
-              </li>
-            </ul>
-            </li>
-          </ul>
-        </div><!-- /.container-fluid -->
-      </nav>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">ChoreTracker</a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a id="signUpButton" data-toggle="modal" data-target="#signUp" href="#">Sign Up</a></li>
+                  <li><a id="signInButton" data-toggle="modal" data-target="#signIn" href="#">Sign In</a></li>
+                  <li class="dropdown" id="options">
+                      <a href="#" id="optionsText" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Options
+                        <span class="caret">
+                        </span>
+                      </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="#" id="changePassButton" data-toggle="modal" data-target="#changePassword">
+                          Change Password
+                        </a>
+                      </li>
+                      <li role="separator" class="divider">
+                      </li>
+                      <li>
+                        <a href="#" id="sign-out">Sign out</button>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+
       <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
             <div class="modal-content">
@@ -123,6 +124,7 @@
             </div>
           </div>
         </div>
+        <!-- left half starts -->
       <section class="container">
         <div class="left-half">
           <p id="message"></p>
@@ -130,32 +132,6 @@
           <form id="chores-search">
             <button type="submit" class="btn btn-default">View All Chores</button>
           </form>
-<!-- chore
-:
-estimated_time
-:
-"5"
-frequency
-:
-"10"
-is_finished
-:
-"f"
-last_completed
-:
-"2018-12-31"
-name
-:
-"Take out trash" -->
-<!--       <h2>Update One Book</h2>
-      <form class="books" id="book-update">
-        <div class="form-group">
-          <input type="text" name="book[id]" id="book-id-update" placeholder="Resource ID Here">
-          <input type="text" name="book[title]" placeholder="Resource Title Here">
-          <input type="text" name="book[author]" placeholder="Resource Author Here">
-        </div>
-        <button type="submit" class="btn btn-default">Update Book</button>
-      </form> -->
       <br>
       <h2 class="chore-changes">Add Chore</h2>
       <form class="chores" id="add-chore">
@@ -191,19 +167,18 @@ name
 
       <p id="show-chores"></p>
     </div>
-    <div class="right-half">
-        <table style="width:100%" id="table">
-          <tr>
-          <th>Name</th>
-          <th>ID</th>
-          <th>Estimated Time(min)</th>
-          <th>Is finished?</th>
-          <th>Frequency(days)</th>
-          <th id="updateCol">Update</th>
-          <th id="deleteCol">Delete</th>
-          </tr>
-        </table>
-    </div>
-      </section>
-    </body>
+        <!-- right half starts -->
+      <div class="right-half" id="table">
+        <div class="tr">
+          <span class="td">Name</span>
+          <span class="td">ID</span>
+          <span class="td">Estimated Time(min)</span>
+          <span class="td">Is finished?</span>
+          <span class="td">Frequency (days)</span>
+          <span class="td" id="updateCol">Update</span>
+          <span class="td" id="deleteCol">Delete</span>
+        </div>
+      </div>
+    </section>
+  </body>
 </html>

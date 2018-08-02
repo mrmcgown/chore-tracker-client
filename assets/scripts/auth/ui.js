@@ -21,8 +21,8 @@ const signInSuccess = function (data) {
   // $('#message').text('Signed in successfully').show().delay(1500).fadeOut()
   // $('#message').css('background-color', 'green')
   $('#sign-in')[0].reset()
-  $('#table, #table-headers, .chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').show()
-  $('#signUpButton, #signInButton').hide()
+  $('#table-headers, .chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').show()
+  $('#table, #signUpButton, #signInButton').hide()
   $('#signIn').modal('hide')
   console.log('signInSuccess ran. Data is :', data)
   store.user = data.user

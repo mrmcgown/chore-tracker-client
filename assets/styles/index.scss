@@ -1,12 +1,16 @@
 $icon-font-path: '~bootstrap-sass/assets/fonts/bootstrap/';
 @import '~bootstrap-sass/assets/stylesheets/bootstrap';
 
-table, th, td {
+// #options, #signInButton, #signUpButton {
+//   vertical-align: sub
+// }
+
+span.td {
   border: 1px solid black;
 }
 
-td, th, tr {
-  padding: 5px 10px;
+span.td, form.tr, div.tr {
+  padding: 0.5em;
 }
 
 .container {
@@ -32,5 +36,41 @@ td, th, tr {
 }
 
 #message {
-  position:fixed
+  position: fixed
+}
+
+span.td {
+  outline: 0;
+  display: table-cell;
+  width: 7%
+}
+
+span.td > input {
+  background-color:transparent;
+  border: 0px solid;
+  height:30px;
+  width: 105%;
+}
+
+span.td > input:focus {
+  outline:none;
+}
+
+div#table {
+  display: table;
+  table-layout: fixed;
+  font-size: 1vw;
+  text-align: center
+}
+
+form.tr, div.tr {
+  display: table-row;
+}
+
+div.tr {
+  font-weight: bold
+}
+
+.navbar-brand {
+  font-size: 200%
 }

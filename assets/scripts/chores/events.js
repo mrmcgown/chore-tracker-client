@@ -7,7 +7,7 @@ const ui = require('./ui')
 const onShowChores = function (event) {
   event.preventDefault()
   console.log('show chores ran!')
-  $('#table').find('tr:gt(0)').remove()
+  $('#table').find('form.tr:has(span)').remove()
 
   api.showChores()
     .then(ui.showChoresSuccess)
@@ -44,6 +44,7 @@ const onAddChore = function (event) {
   }
   $('#table').find('tr:gt(0)').remove()
   api.addChore(data)
+    .then(() => onShowChores(event))
     .then(ui.addChoreSuccess)
     .catch(ui.addChoreFailure)
 }
@@ -51,7 +52,7 @@ const onAddChore = function (event) {
 const onDeleteChore = function (event) {
   event.preventDefault()
   console.log('delete chore ran!')
-  const choreId = $(event.target).closest('tr').attr('data-id')
+  const choreId = $(event.target).closest('form.tr').attr('data-id')
 
   console.log(choreId)
   api.deleteChore(choreId)
@@ -63,10 +64,11 @@ const onDeleteChore = function (event) {
 const onUpdateChore = function (event) {
   event.preventDefault()
   console.log('update chore ran')
+  const choreId = $(event.target).closest('tr').attr('data-id')
+  console.log(choreId)
 
   const data = getFormFields(this)
 
-  // onShowChores()
   api.updateChore(data)
     .then(ui.updateChoreSuccess)
     .catch(ui.updateChoreFailure)
@@ -76,7 +78,7 @@ const addHandlers = () => {
   $('#chores-search').on('submit', onShowChores)
   $('#add-chore').on('submit', onAddChore)
   $('#table').on('click', 'button.delBut', onDeleteChore)
-  $('#udpate-chore').on('submit', onUpdateChore)
+  $('#table').on('click', 'button.updBut', onUpdateChore)
   $('#table, #options').hide()
 }
 
