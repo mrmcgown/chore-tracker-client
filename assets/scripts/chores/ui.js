@@ -11,28 +11,28 @@ const showChoresSuccess = function (data) {
   console.table(data.chores)
   data.chores.forEach(chore => {
     const choreHTML = (`
-      <form class="tr" data-id=${chore.id}>
-        <span class="td">
-          <input type="text" value=${chore.name} />
-        </span>
-        <span class="td">
-          <input type="text" value=${chore.id} />
-        </span>
-        <span class="td">
-          <input type="text" value=${chore.estimated_time} />
-        </span>
-        <span class="td">
-          <input type="text" value=${chore.is_finished} />
-        </span>
-        <span class="td">
-          <input type="text" value=${chore.frequency} />
-        </span>
-        <span class="td">
-          <button type="submit" class="updBut" class="btn btn-default">Update</button>
-        </span>
-        <span class="td">
-          <button type="button" class="delBut" class="btn btn-default">Delete</button>
-        </span>
+      <form class="tr" data-id=${chore.id} readonly>
+          <span class="form-group td">
+            <input type="text" name="name" value=${chore.name} readonly />
+          </span>
+          <span class="td">
+            <input type="integer" name="id" value=${chore.id} readonly />
+          </span>
+          <span class="td">
+            <input type="integer" name="estimated_time" value=${chore.estimated_time} readonly />
+          </span>
+          <span class="td">
+            <input type="boolean" name="is_finished" value=${chore.is_finished} readonly />
+          </span>
+          <span class="td">
+            <input type="integer" name="frequency" value=${chore.frequency} readonly />
+          </span>
+          <span class="td">
+            <button type="button" class="updBut" class="btn btn-default">Update</button>
+          </span>
+          <span class="td">
+            <button type="button" class="delBut" class="btn btn-default">Delete</button>
+          </span>
       </form>
     `)
     $('#table').append(choreHTML)
@@ -74,7 +74,6 @@ const deleteChoreFailure = function (error) {
 const updateChoreSuccess = function (data) {
   $('#message').text('Updated chore successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  $('#changePassword').modal('hide')
   console.log('updateChoreSuccess ran. Data is :', data)
 }
 

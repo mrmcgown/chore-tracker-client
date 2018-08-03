@@ -11,15 +11,16 @@ const onShowChores = function (event) {
 
   api.showChores()
     .then(ui.showChoresSuccess)
+    .then(addTableHandlers)
     .catch(ui.showChoresFailure)
+
+  $('span.td :input').attr('readonly', 'readonly')
 }
 
 const onAddChore = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
   console.log('add chore ran!')
-  console.log(this)
-  console.log(data)
   if (data.chore.name === '') {
     // alert('title required')
     $('#message').html('<p>Name is required</p>')
@@ -65,25 +66,53 @@ const onDeleteChore = function (event) {
 const onUpdateChore = function (event) {
   event.preventDefault()
   console.log('update chore ran')
-  const choreId = $(event.target).closest('tr').attr('data-id')
+  const choreId = $(event.target).closest('form.tr').attr('data-id')
   console.log(choreId)
 
-  const data = getFormFields(this)
+  $('[data-id=' + choreId + ']').find('button.updBut').html('Save')
+  $('[data-id=' + choreId + ']').find('input').prop('readonly', false).css('outline', 'auto -webkit-focus-ring-color')
+  $('[data-id=' + choreId + ']').find('button.updBut').removeClass('updBut').addClass('savBut')
+  $('[data-id=' + choreId + ']').find('button.savBut').prop('type', 'submit')
+}
 
-  api.updateChore(data)
+const onSaveChore = function (event) {
+  event.preventDefault()
+  console.log('save chore ran')
+  const choreId = $(event.target).closest('form.tr').attr('data-id')
+  console.log(choreId)
+
+  let data = {}
+
+  $(event.target).find('input').each((_, el) => {
+    data[el.name] = el.value
+  })
+
+  data = { chore: data }
+
+  console.log(`Data to patch is`, data)
+
+  api.updateChore(data, choreId)
     .then(ui.updateChoreSuccess)
     .catch(ui.updateChoreFailure)
+
+  $('[data-id=' + choreId + ']').find('button.savBut').html('Update')
+  $('[data-id=' + choreId + ']').find('input').prop('readonly', true).css('outline', 'none')
+  $('[data-id=' + choreId + ']').find('button.savBut').removeClass('savBut').addClass('updBut')
 }
 
 const addHandlers = () => {
   $('#chores-search').on('submit', onShowChores)
   $('#add-chore').on('submit', onAddChore)
+  $('#table, #options').hide()
+}
+const addTableHandlers = () => {
   $('#table').on('click', 'button.delBut', onDeleteChore)
   $('#table').on('click', 'button.updBut', onUpdateChore)
-  $('#table, #options').hide()
+  $('form.tr').on('submit', onSaveChore)
 }
 
 module.exports = {
   onShowChores,
-  addHandlers
+  addHandlers,
+  addTableHandlers
 }
