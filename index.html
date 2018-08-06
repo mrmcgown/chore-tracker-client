@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+    <head>
+      <title>ChoreTracker</title>
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+
+      <!-- Do not add `link` tags-->
+      <link rel="shortcut icon" type="image/x-icon" href="favicon.ico">
+
+      <!-- Do not add `script` tags-->
+      <script src="public/vendor.js" type="text/javascript" charset="utf-8" defer></script>
+      <script src="public/application.js" type="text/javascript" charset="utf-8" defer></script>
+    </head>
+    <body>
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+              <!-- Brand and toggle get grouped for better mobile display -->
+              <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+                  <span class="sr-only">Toggle navigation</span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                  <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand">ChoreTracker</a>
+              </div>
+
+              <!-- Collect the nav links, forms, and other content for toggling -->
+              <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                  <li><a id="signUpButton" data-toggle="modal" data-target="#signUp" href="#">Sign Up</a></li>
+                  <li><a id="signInButton" data-toggle="modal" data-target="#signIn" href="#">Sign In</a></li>
+                  <li class="dropdown" id="options">
+                      <a href="#" id="optionsText" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                        Options
+                        <span class="caret">
+                        </span>
+                      </a>
+                    <ul class="dropdown-menu">
+                      <li>
+                        <a href="#" id="changePassButton" data-toggle="modal" data-target="#changePassword">
+                          Change Password
+                        </a>
+                      </li>
+                      <li role="separator" class="divider">
+                      </li>
+                      <li>
+                        <a href="#" id="sign-out">Sign out</button>
+                        </a>
+                      </li>
+                    </ul>
+                  </li>
+                </ul>
+              </div><!-- /.navbar-collapse -->
+            </div><!-- /.container-fluid -->
+          </nav>
+
+      <div class="modal fade" id="signUp" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                  <h4 class="modal-title" id="myModalLabel">Sign Up</h4>
+              </div>
+              <div class="modal-body">
+                <form id="sign-up" class="border">
+                  <fieldset>
+                    <input type="text" name="credentials[email]" placeholder="Email">
+                    <input type="password" name="credentials[password]" placeholder="Password">
+                    <input type="password" name="credentials[password_confirmation]" placeholder="Confirm Password">
+                    <input type="submit" value="submit">
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="signIn" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Sign In</h4>
+              </div>
+              <div class="modal-body">
+                <form id="sign-in" class="border">
+                  <fieldset>
+                    <input type="text" name="credentials[email]" placeholder="Email">
+                    <input type="password" name="credentials[password]" placeholder="Password">
+                    <input type="submit" value="submit">
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="changePassword" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title" id="myModalLabel">Change Password</h4>
+              </div>
+              <div class="modal-body">
+                <form id="change-password" class="border">
+                  <fieldset>
+                    <input type="password" name="passwords[old]" placeholder="Old Password">
+                    <input type="password" name="passwords[new]" placeholder="New Password">
+                    <input type="submit" value="submit">
+                  </fieldset>
+                </form>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- left half starts -->
+      <section class="container">
+        <div class="left-side">
+          <p id="message"></p>
+          <h2 class="chore-changes">View All Chores</h2>
+          <form id="chores-search">
+            <button type="submit" class="btn btn-default">View All Chores</button>
+          </form>
+      <br>
+      <h2 class="chore-changes">Add Chore</h2>
+      <form class="chores" id="add-chore">
+        <div class="form-group">
+          <input type="text" name="chore[name]" placeholder="Name of Chore">
+          <input type="integer" name="chore[estimated_time]" placeholder="Estimated Time to Complete Chore">
+          <input type="boolean" name="chore[is_finished]" placeholder="Status of Chore">
+          <input type="integer" name="chore[frequency]" placeholder="Frequency of Chore">
+        </div>
+        <button type="submit" class="btn btn-default">Add Chore</button>
+      </form>
+
+      <p id="show-chores"></p>
+    </div>
+        <!-- right half starts -->
+      <div class="right-side" id="table">
+        <div class="tr">
+          <span class="td">Name</span>
+          <span class="td">ID</span>
+          <span class="td">Estimated Time(min)</span>
+          <span class="td">Is finished?</span>
+          <span class="td">Frequency (days)</span>
+          <span class="td" id="updateCol">Update</span>
+          <span class="td" id="deleteCol">Delete</span>
+        </div>
+      </div>
+    </section>
+  </body>
+</html>
