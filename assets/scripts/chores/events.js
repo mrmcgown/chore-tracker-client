@@ -6,7 +6,7 @@ const ui = require('./ui')
 
 const onShowChores = function (event) {
   event.preventDefault()
-  console.log('show chores ran!')
+  // console.log('show chores ran!')
   $('#table').find('form.tr:has(span)').remove()
 
   api.showChores()
@@ -20,7 +20,7 @@ const onShowChores = function (event) {
 const onAddChore = function (event) {
   event.preventDefault()
   const data = getFormFields(event.target)
-  console.log('add chore ran!')
+  // console.log('add chore ran!')
   if (data.chore.name === '') {
     // alert('title required')
     $('#message').html('<p>Name is required</p>')
@@ -47,27 +47,25 @@ const onAddChore = function (event) {
     .then(() => onShowChores(event))
     .then(ui.addChoreSuccess)
     .catch(ui.addChoreFailure)
-
-  $('.form-group').reset()
 }
 
 const onDeleteChore = function (event) {
   event.preventDefault()
-  console.log('delete chore ran!')
+  // console.log('delete chore ran!')
   const choreId = $(event.target).closest('form.tr').attr('data-id')
 
-  console.log(choreId)
+  // console.log(choreId)
   api.deleteChore(choreId)
-    .then(() => onShowChores(event))
     .then(ui.deleteChoreSuccess)
+    .then(() => onShowChores(event))
     .catch(ui.deleteChoreFailure)
 }
 
 const onUpdateChore = function (event) {
   event.preventDefault()
-  console.log('update chore ran')
+  // console.log('update chore ran')
   const choreId = $(event.target).closest('form.tr').attr('data-id')
-  console.log(choreId)
+  // console.log(choreId)
 
   $('[data-id=' + choreId + ']').find('button.updBut').html('Save')
   $('[data-id=' + choreId + ']').find('input').prop('readonly', false).css('outline', 'auto -webkit-focus-ring-color')
@@ -77,9 +75,9 @@ const onUpdateChore = function (event) {
 
 const onSaveChore = function (event) {
   event.preventDefault()
-  console.log('save chore ran')
+  // console.log('save chore ran')
   const choreId = $(event.target).closest('form.tr').attr('data-id')
-  console.log(choreId)
+  // console.log(choreId)
 
   let data = {}
 
@@ -89,7 +87,7 @@ const onSaveChore = function (event) {
 
   data = { chore: data }
 
-  console.log(`Data to patch is`, data)
+  // console.log(`Data to patch is`, data)
 
   api.updateChore(data, choreId)
     .then(ui.updateChoreSuccess)

@@ -36,7 +36,6 @@ const deleteChore = function (choreId) {
 }
 
 const updateChore = function (data, choreId) {
-  console.log(data )
   return $.ajax({
     url: config.apiUrl + '/chores/' + choreId,
     method: 'PATCH',

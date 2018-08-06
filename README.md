@@ -1,74 +1,135 @@
-[![General Assembly Logo](https://camo.githubusercontent.com/1a91b05b8f4d44b5bbfb83abac2b0996d8e26c92/687474703a2f2f692e696d6775722e636f6d2f6b6538555354712e706e67)](https://generalassemb.ly/education/web-development-immersive)
+# Chore Tracker README
 
-# browser-template
+Sign up with your email to get started, then sign in. Once signed in, you will be able to view all of your chores, create new chores, deleted unwanted chores, and update old chores. 
 
-A template for starting front-end projects. Webpack for `require` system, build
-pipeline, and development server. Boostrap and Handlebars.js included. No
-front-end frameworks included.
+## Project Idea
 
-## Installation
+```md
+Chore-Tracker is an app for to keep track of a family's or group's chores. I came up with it thinking about my own family and how we go about handling and distributing chores. Although there are already similar apps available, I believe I will be able to come up with some nuanced features and ux design.
 
-1. [Download](../../archive/master.zip) this template.
-1. Move to the `wdi/projects` directory, then unzip the template directory with
-    `unzip /Users/<user-name>/Downloads/browser-template-master.zip`.
-1. Rename the template directory from `browser-template-master` to
-    `<project-name>-client`.
-1. Empty [`README.md`](README.md) and fill with your own content.
-1. Replace all instances of `ga-wdi-boston.browser-template` with the name of
-    your project.
-1. Move into the new project and `git init`.
-1. Add all of the files in your project with the command `git add --all`.
-      - **Note: This is the only time you should run this command!**
-1. Commit all of your files with the command `git commit`.
-      - Your commit title should read `Initial commit`.
-1. Install dependencies with `npm install`.
-1. Create a new repository on [github.com](https://github.com),
-    _not GitHub Enterprise_.
-1. Name the new repository with the same name used on Step 3.
+Technologies used:
+HTML
+CSS
+JavaScript
+jQuery
+Ruby on Rails
+Heroku
+GitHub
+CLI
+VS Code
+SQL/PostgreSQL
 
-## Structure
+Plans for Future Iterations:
+CSS Styling. Perhaps changing the Add Chore user interface to have users directly enter the new chore attributes in a new blank row on the table. Also need to consider have an auth account functionality so that admin could assign and view chore for everyone in the group. This could involve incorporating a new database. 
 
-Developers should store JavaScript files in [`assets/scripts`](assets/scripts).
-The "manifest" or entry-point is
-[`assets/scripts/index.js`](assets/scripts/index.js). In general, only
-application initialization goes in this file. It's normal for developers to
-start putting all code in this file, but encourage them to break out different
-responsibilities and use the `require` syntax put references where they're
-needed.
+Process:
+Chore-Tracker is the second app that I have created, and the first where I created the backend.
 
-Developers should set `apiUrls.production` and `apiUrls.development` in
-[`config/environment.js`](config/environment.js).  With
-`apiUrls` set, developers may rely on `apiUrl` as the base for API
-URLs.
 
-Developers should store styles in [`assets/styles`](assets/styles) and load them
-from [`assets/styles/index.scss`](assets/styles/index.scss). Bootstrap version 3 is
-included in this template.
+I began the project by completing the full-stack-practice, including wireframs, user stories, and general project planning tasks. I then went through the API setup. This included downloading the rails API template and generating a scaffold with my databases, routes, controller, and models. Finally, I signed up for an account with Heroku which I would ultimately use to deploy my backend. Before moving on, I ensure the database was working through the use of Postman.
 
-Developers should use [getFormFields](get-form-fields.md) to retrieve form data
-to send to an API.
+Once I was finished making changes to the rails-generated scaffold, I began working on the front end. This also involved use a browser template. Similar to my first project, Tic Tac Toe, I first created the user authorization functionality and ensured that was working. After this, I began working on viewing all chores and having them generate in a table through DOM manipulation. Since I had not created my board dynamically when I wrote Tic Tac Toe, this experience was new for me. I initially tried to use HTML tables, but they had trouble fitting with my desired update feature. I ultimately decided to go with CSS display properties for the table, rows, and cells. This allowed me to have a columns for the update and delete buttons to function the way they do (making the table row editable and saveable). The delete button was fairly simple in comparison.
 
-To deploy a browser-template based SPA, run `grunt deploy`.
+Ultimately, this project was more difficult than Tic Tac Toe because it involved creating a backend in addition to the frontend, but I feel my mental approach was more ready to encounter and overcome difficulty. I look forward to updating this app.
+```
 
-## Tasks
+## User Stories
 
-Developers should run these often!
+```md
+As a user, I want to be able to sign up for an account.
 
-- `grunt nag` or just `grunt`: runs code quality analysis tools on your code
-    and complains
-- `grunt make-standard`: reformats all your code in the JavaScript Standard Style
-- `grunt <server|serve|s>`: generates bundles, watches, and livereloads
-- `grunt test`: runs any automated tests, depends on `grunt build`
-- `grunt build`: place bundled styles and scripts where `index.html` can find
-    them
+As a user, I want to be able to sign in using my username and password.
 
-## Additional Resources
+As a user, I want to be able to sign out of my account.
 
-- [Modern Javascript Explained for Dinosaurs](https://medium.com/@peterxjang/modern-javascript-explained-for-dinosaurs-f695e9747b70)
-- [Making Sense of Front End Build Tools](https://medium.freecodecamp.org/making-sense-of-front-end-build-tools-3a1b3a87043b)
+As a user, I want to be able to change my password.
 
-## [License](LICENSE)
+As a user, I want to be able to join a group/family.
 
-1. All content is licensed under a CC­BY­NC­SA 4.0 license.
-1. All software code is licensed under GNU GPLv3. For commercial use or
-    alternative licensing, please contact legal@ga.co.
+As a user, I want to be able to create a new chore.
+
+As a user, I want to see which chores I have been assigned(by the admin).
+
+As a user, I want to provide the name of the chore.
+
+As a user, I want to enter the estimated time to complete the chore.
+
+As a user, I want to input whether the chore is finished.
+
+As a user, I want to input the frequency with which the chore needs to be completed.
+
+As a user, I want to update and/or check when the chore was last completed.
+
+As an admin, I want to create a new group/family.
+ 
+As an admin, I want to assign a user to complete that chore.
+
+As an admin, I want to view all chores and asscoriated data belonging to my group/family.
+
+```
+
+## Database Organization
+
+```md
+I have a Users table that will include an id, name, and age. I also have a Chores table that will include an id, user id, name(of the chore), estimated time to complete, is finished?, frequency(i.e. needs to be completed every x number of days), and the date the chore was last completed.
+```
+
+## ERD
+
+![alt text](https://i.imgur.com/fQHRsXwl.jpg)
+
+
+## Routing
+
+```md
+GET, POST, PATCH, DELETE, INDEX, SHOW
+```
+
+## 3rd Party APIs
+
+```md
+Not at this time.
+```
+
+## Wireframes
+
+Please create a wireframe of your planned front end.
+
+![alt text](https://i.imgur.com/Xmqv7P2l.jpg)
+![alt text](https://i.imgur.com/isWJpapl.jpg)
+
+
+## Timetable
+
+Write a basic timetable for yourself, you don't have to stick to it but it
+helps to go in with a plan.
+
+```md
+Day 1 - Planning (User Stories, Wireframes, & ERD)
+Day 2 - API setup & Client setup (templates and deploying)
+Day 3 - API Side 
+ Review rails-api-one-to-many or rails-api-many-to-many
+ Scaffold your resource
+ Test your resource's end points with curl scripts
+ Update resource controller to inherit from Protected or OpenRead controller
+ Test your resource's end points with curl scripts
+ Add the relationship to a User
+ Add User ownership to resource controller
+Day 4 - Client Side (part 1)
+ Review api-token-auth
+ Sign Up (curl then web app)
+ Sign In (curl then web app)
+ Change Password (curl then web app)
+ Sign Out (curl then web page)
+ All API calls have success or failure messages
+Day 5 - Client Side (part 2)
+ Review query-ajax-post
+ Create resource (curl then web app)
+ Get all of their owned resources (curl then web app)
+ Delete single resource (curl then web app)
+ Update single resource (curl then web app)
+Day 6 - Final Touches
+ README
+ Troubleshoot/Debug
+ Style
+```

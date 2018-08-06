@@ -8,7 +8,7 @@ const showChoresSuccess = function (data) {
   $('#message').text('Showed chores successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
   $('#table').show()
-  console.table(data.chores)
+  // console.table(data.chores)
   data.chores.forEach(chore => {
     const choreHTML = (`
       <form class="tr" data-id=${chore.id} readonly>
@@ -38,7 +38,7 @@ const showChoresSuccess = function (data) {
     $('#table').append(choreHTML)
   })
 
-  console.log('showChoresSuccess ran. Data is :', data)
+  // console.log('showChoresSuccess ran. Data is :', data)
 }
 
 const showChoresFailure = function (error) {
@@ -51,7 +51,7 @@ const addChoreSuccess = function (data) {
   $('#message').text('Added chore successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
   $('#add-chore')[0].reset()
-  console.log('addChoreSuccess ran. Data is :', data)
+  // console.log('addChoreSuccess ran. Data is :', data)
 }
 
 const addChoreFailure = function (error) {
@@ -74,7 +74,7 @@ const deleteChoreFailure = function (error) {
 const updateChoreSuccess = function (data) {
   $('#message').text('Updated chore successfully').show().delay(1500).fadeOut()
   $('#message').css('background-color', 'green')
-  console.log('updateChoreSuccess ran. Data is :', data)
+  // console.log('updateChoreSuccess ran. Data is :', data)
 }
 
 const updateChoreFailure = function (error) {

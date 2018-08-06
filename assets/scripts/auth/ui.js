@@ -7,7 +7,7 @@ const signUpSuccess = function (data) {
   $('#message').css('background-color', 'green')
   $('#sign-up')[0].reset()
   $('#signUp').modal('hide')
-  console.log('signUpSuccess ran. Data is :', data)
+  // console.log('signUpSuccess ran. Data is :', data)
 }
 
 const signUpFailure = function (error) {
@@ -17,14 +17,14 @@ const signUpFailure = function (error) {
 }
 
 const signInSuccess = function (data) {
-  $('#message').html('<div class="alert alert-success"><strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>.</div>').show()
-  // $('#message').text('Signed in successfully').show().delay(1500).fadeOut()
-  // $('#message').css('background-color', 'green')
+  // $('#message').html('<div class="alert alert-success"><strong>Success!</strong> You should <a href="#" class="alert-link">read this message</a>.</div>').show()
+  $('#message').text('Signed in successfully').show().delay(1500).fadeOut()
+  $('#message').css('background-color', 'green')
   $('#sign-in')[0].reset()
   $('#table-headers, .chore-changes, #sign-out, #changePassButton, #options, #chores-search, #add-chore, #delete-chore, #update-chore').show()
   $('#table, #signUpButton, #signInButton').hide()
   $('#signIn').modal('hide')
-  console.log('signInSuccess ran. Data is :', data)
+  // console.log('signInSuccess ran. Data is :', data)
   store.user = data.user
 }
 
