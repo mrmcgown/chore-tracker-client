@@ -5,7 +5,7 @@ Sign up with your email to get started, then sign in. Once signed in, you will b
 ## Project Idea
 
 ```md
-Chore-Tracker is an app for to keep track of a family's or group's chores. I came up with it thinking about my own family and how we go about handling and distributing chores. Although there are already similar apps available, I believe I will be able to come up with some nuanced features and ux design.
+Chore-Tracker is an app to keep track of a family's or group's chores. I came up with it thinking about my own family and how we go about handling and distributing chores. Although there are already similar apps available, I believe I will be able to come up with some nuanced features and ux design.
 
 Technologies used:
 HTML
@@ -24,7 +24,6 @@ CSS Styling. Perhaps changing the Add Chore user interface to have users directl
 
 Process:
 Chore-Tracker is the second app that I have created, and the first where I created the backend.
-
 
 I began the project by completing the full-stack-practice, including wireframs, user stories, and general project planning tasks. I then went through the API setup. This included downloading the rails API template and generating a scaffold with my databases, routes, controller, and models. Finally, I signed up for an account with Heroku which I would ultimately use to deploy my backend. Before moving on, I ensure the database was working through the use of Postman.
 
